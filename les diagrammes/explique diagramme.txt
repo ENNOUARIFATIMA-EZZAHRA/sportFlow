@@ -1,0 +1,41 @@
+2-Diagramme de Séquence : Planification d'une séance
+Membre ------> Système : demanderPlanification(idMembre, idEntraineur, date, heure)
+
+Le membre soumet une demande de planification pour une séance, incluant son identifiant (idMembre), l'identifiant de l'entraîneur (idEntraineur), ainsi que la date et l'heure souhaitées.
+
+Système -----> Entraîneur : vérifierDisponibilité(date, heure)
+
+Le système contacte l'entraîneur pour vérifier sa disponibilité à la date et à l'heure fournies par le membre.
+
+Entraîneur ----> Système : disponibilitéConfirmée / indisponible
+
+L'entraîneur répond au système pour confirmer sa disponibilité ou indiquer son indisponibilité.
+
+Système -----> Base de données : enregistrerSéance(idMembre, idEntraineur, date, heure)
+
+Si l'entraîneur est disponible, le système enregistre les informations de la séance dans la base de données.
+
+Base de données ----> Système : confirmationPlanification
+
+La base de données confirme au système que la séance a été correctement enregistrée.
+
+Système -----> Membre : confirmerPlanification
+
+Enfin, le système informe le membre que la séance a été planifiée avec succès ou renvoie un message d'indisponibilité si l'entraîneur n'était pas disponible.
+
+3-
+Membre ------> Système : consulterPlanning(idMembre)
+
+Le membre envoie une requête au système pour consulter son planning, en fournissant son identifiant (idMembre) pour que le système identifie les données pertinentes.
+
+Système -----> Base de données : récupérerPlanning(idMembre)
+
+Le système interagit avec la base de données pour récupérer les informations de planning associées à l'identifiant du membre.
+
+Base de données ----> Système : planningInfos
+
+La base de données retourne au système les informations de planning (comme les dates, heures, et détails des séances).
+
+Système -----> Membre : afficherPlanning(planningInfos)
+
+Le système affiche les informations récupérées au membre, lui permettant de consulter les détails de son planning.
