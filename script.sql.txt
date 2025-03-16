@@ -1,0 +1,24 @@
+create data base sportFolow;
+use database sportFolow;
+
+create table Member(
+id int primary key,
+nom varchar(20) not null,
+dateNaissance date not null,
+sportPratiue varchar(20) not null);
+
+
+create table Entraineur(
+id int primary key,
+nom varchar(20) not null,
+specialite varchar(20) not null,
+);
+
+create table Seance(
+id int primary key,
+date date not null,
+heure time not null,
+foreign key (id_member)references Member(id_member),
+foreign key (id_Entraineur)references Entraineur(id_Entraineur),
+);
+
